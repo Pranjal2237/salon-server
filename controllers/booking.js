@@ -1,5 +1,7 @@
 import { instance } from "../server.js";
 import crypto from 'crypto'
+import nodemailer from 'nodemailer'
+import Booking from "../models/Booking.js";
 
 export const onlineBooking = async (req, res) => {
   try {
@@ -29,7 +31,7 @@ export const paymentVarification = async (req, res) => {
 
     const isAuthentic = true;
     if (isAuthentic) {
-      res.redirect('http://localhost:3000/online-booking')
+      res.redirect('http://localhost:3000/online-booking?confirmation=success')
     } else {
       res.status(404).json({ success: false });
     }
