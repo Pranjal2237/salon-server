@@ -1,18 +1,6 @@
 import mongoose from "mongoose";
 
 const BookingSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
-    },
-    email:{
-        type:String,
-        required:true
-    },
-    phone:{
-        type:String,
-        required:true
-    },
     category:{
         type:String,
         required:true
@@ -28,6 +16,28 @@ const BookingSchema=new mongoose.Schema({
     timing:{
         type:[String],
         required:true
+    },
+    userId:{
+        type:mongoose.Schema.ObjectId,
+        ref:'User',
+        required:true
+    },
+    order_id:{
+        type:String,
+    },
+    payment_id:{
+        type:String
+    },
+    signature:{
+        type:String
+    },
+    status:{
+        type:String,
+        required:true
+    },
+    payment:{
+        type:String,
+        default:"Unsuccessful"
     }
 },{timestamps:true})
 

@@ -34,8 +34,7 @@ export const queryEmail=async(req,res)=>{
 
 export const responseEmail=async(req,res)=>{
     try {
-        const user=await Booking.create(req.body);
-      const{name,email,phone,category,appointment,servicePerson,timing}=req.body;
+      const{name,email,category,appointment,servicePerson,timing}=req.body;
       const stringTiming=timing.toString();
       const html=`
         <h3>Booking successful</h3>
