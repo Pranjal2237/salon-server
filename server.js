@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import bookingRoutes from './routes/bookingRoutes.js'
 import emailRoutes from './routes/emailRoutes.js'
 import userRoute from './routes/userRoute.js'
+import appointmentRoute from './routes/appointmentRoutes.js'
 import Razorpay from 'razorpay'
 import mongoose from 'mongoose'
 import cookieParser from 'cookie-parser'
@@ -27,6 +28,8 @@ app.use('/api',bookingRoutes);
 app.use('/api',emailRoutes)
 
 app.use('/api/user',userRoute);
+
+app.use('/api',appointmentRoute)
 
 app.get('/api/getkey',(req,res)=>{res.status(200).json({key:process.env.RAZORPAY_API_KEY})})
 
